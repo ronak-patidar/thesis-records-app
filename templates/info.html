@@ -1,0 +1,126 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<html>
+<head>
+     <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+    
+    
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>info</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: left;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+</head>
+<body>
+
+  <img  class="logo1" src="{% static 'images/logo.jpg' %}" alt="logo">
+  <br>
+  
+
+<h1> Motilal Nehru National Institute of Technology Allahabad, Prayagraj </h1>
+
+
+<hr>
+
+<ul class="topnav">
+  <li><a  style="margin-right:20px" href="login">Home</a></li>
+  <li><a href="http://www.mnnit.ac.in/index.php/mnnit-in-press/press-news" style="margin-right:20px" >News</a></li>
+  <li><a href="http://www.mnnit.ac.in/index.php/contact-us" style="margin-right:20px" >Contact</a></li>
+  <li><a href="http://www.mnnit.ac.in/index.php/institute/about-us" style="margin-right:20px" >About Us</a></li>
+  <li><a href="http://mnnit.ac.in/index.php/institute/photo-gallery" style="margin-right:20px" >Gallery</a></li>
+  <li><a class="active" href="info" style="margin-right:20px" >Download</a></li>
+  {% if user.is_authenticated %}
+	<li><a href="logout" style="margin-right:20px" >Logout</a></li>   
+	{% endif %}
+
+</ul>
+ 
+ <br>
+
+<hr>
+ <a style="font-solid"  href="index1">Download PDF</a>
+    <form method="POST">
+        {% csrf_token %}
+        
+        <label>Enter:</label>
+        <input type="text" name="student_name" placeholder="Search For...">
+        <select id="thesis" name="field">
+          <!--<option value="all" selected="selected">All</option>-->
+          <option value="student_name">Student_name</option>
+          <option value="supervisor_name">Supervisor_name</option>
+          <option value="thesis_title">Thesis_title</option>
+          <option value="submission_year">Submission_year</option>
+        </select>
+        <input type="submit" value="Submit">
+      
+    </form><br/><br/>
+    
+      
+    <table>
+      
+        <tr>
+          <th>S.No.</th>
+          <th>Name of Ph.D Student</th>
+          <th>Title of Thesis</th>
+          <th>Name of Supervisor</th>
+          <th>Year of Submission</th>
+          <th>Department Name</th>
+        </tr>
+        {% for det in query %} 
+             <tr>
+          <td>{{det.id}}</td>
+          <td>{{det.student_name}}</td>
+          <td>{{det.thesis_title}}</td>
+          <td>{{det.supervisor_name}}</td>
+          <td>{{det.submission_year}}</td>
+          <td>{{det.department}}</td>
+          
+        </tr>
+     
+    {% endfor %}
+</table>
+
+
+            <script src="{% static 'plugins/anime.min.js' %}"></script>
+						<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+						<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+						<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+						<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+						<script src="{% static 'plugins/Isotope/isotope.pkgd.min.js' %}"></script>
+						<script src="{% static 'plugins/scrollTo/jquery.scrollTo.min.js' %}"></script>
+						<script src="{% static 'plugins/easing/easing.js' %}"></script>
+						<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+						<script src="{% static 'js/custom.js' %}"></script>
+
+<br><br><br><br><br>
+ <footer class="footer">
+  <p>© MNNIT Copyright 2020. All Rights Reserved.</p>
+  <p>Contact information: <a href="jforjadhav@gmail.com">
+  MNNIT@gmail.com</a>.</p>
+</footer>
+
+</body>
+</html>

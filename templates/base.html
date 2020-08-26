@@ -1,0 +1,73 @@
+{% load static %}
+{% static "images" as baseUrl %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>login</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/home.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'styles/bootstrap4/bootstrap.min.css' %}">
+    
+    
+</head>
+<body>
+
+  <img  class="logo1" src="{% static 'images/logo.jpg' %}" alt="logo">
+  <br>
+  
+
+<h1> Motilal Nehru National Institute of Technology Allahabad, Prayagraj </h1>
+
+
+
+<hr>
+
+<ul class="topnav">
+  <li><a  style="margin-right:20px" href="login">Home</a></li>
+  <li><a href="http://www.mnnit.ac.in/index.php/mnnit-in-press/press-news" style="margin-right:20px" >News</a></li>
+  <li><a href="http://www.mnnit.ac.in/index.php/contact-us" style="margin-right:20px" >Contact</a></li>
+  <li><a href="http://www.mnnit.ac.in/index.php/institute/about-us" style="margin-right:20px" >About Us</a></li>
+  <li><a href="http://mnnit.ac.in/index.php/institute/photo-gallery" style="margin-right:20px" >Gallery</a></li>
+  <li><a  href="info" style="margin-right:20px" >Download</a></li>
+  {% if user.is_authenticated %}
+	<li><a href="logout" style="margin-right:20px" >Logout</a></li>   
+	{% endif %}
+</ul>
+ 
+<hr>
+
+
+  {% block content %}
+
+
+
+
+
+
+ 
+ 
+  {% endblock %}
+
+           
+            <script src="{% static 'plugins/anime.min.js' %}"></script>
+						<script src="{% static 'js/jquery-3.2.1.min.js' %}"></script>
+						<script src="{% static 'styles/bootstrap4/popper.js' %}"></script>
+						<script src="{% static 'styles/bootstrap4/bootstrap.min.js' %}"></script>
+						<script src="{% static 'plugins/OwlCarousel2-2.2.1/owl.carousel.js' %}"></script>
+						<script src="{% static 'plugins/Isotope/isotope.pkgd.min.js' %}"></script>
+						<script src="{% static 'plugins/scrollTo/jquery.scrollTo.min.js' %}"></script>
+						<script src="{% static 'plugins/easing/easing.js' %}"></script>
+						<script src="{% static 'plugins/parallax-js-master/parallax.min.js' %}"></script>
+						<script src="{% static 'js/custom.js' %}"></script>
+
+
+<footer class="footer">
+  <p>© MNNIT Copyright 2020. All Rights Reserved.</p>
+  <p>Contact information: <a href="jforjadhav@gmail.com">
+  MNNIT@gmail.com</a>.</p>
+</footer>
+
+</body>
+</html>
